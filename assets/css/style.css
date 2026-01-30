@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 15px;
+  background-color: #016d82;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 5px 10px -4px #999999;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+.logo a {
+  color: #ffffff; /* ya jo bhi aapka original color ho */
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.logo a:hover {
+  color: #ffffff; /* hover par bhi wahi color rahe */
+}
+.list a:hover {
+  color: #00ff0e; /* hover par bhi wahi color rahe */
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+}
+
+#toggler,
+label {
+  display: none;
+}
+.humberger {
+  display: none;
+}
+
+label i {
+  color: white;
+}
+
+@media screen and (max-width: 650px) {
+  nav {
+    height: auto;
+  }
+  .menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .humberger {
+    display: block;
+  }
+
+  label {
+    display: inline-flex;
+  }
+
+  #toggler:checked ~ .menu {
+    max-height: 100%;
+  }
+
+  .list {
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+  }
+}
+
+/* Active link styling */
+.menu_actve {
+  color: #000000 !important;
+  background-color: #ffc843 !important;
+  padding: 5px 10px !important;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 650px) {
+  .list li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Active button css end */
+.main {
+  margin-top: 78px;
+  /* padding: 20px; */
+}
+.rounded-circle {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.icon-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+  white-space: nowrap;
+  background-color: skyblue;
+}
+
+/* footer css start */
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+footer li {
+  margin-bottom: 10px;
+}
+.border-light {
+  height: 2px !important;
+  background: linear-gradient(to right, #20305f 0%, #ffffff 50%, #20305f 100%);
+}
+/* footer css end */
+
+/* Contact us css start */
+
+.contact label {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.65px;
+  text-align: left;
+}
+
+/* Contact us css end */
+
+/* projects us css start */
+
+
+.project-card {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+/* projects css end */
+
+/* services css start */
+
+.services-card {
+  transition: all 0.3s ease;
+}
+
+.services-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+/* services  css end */
+/* contact form css start */
+.contact_form{
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  /* background: linear-gradient(to bottom, #63FFFF 10%, #FFEE00 70%, #10f98361  85%); */
+  background-color: #016d82;
+  color: white;
+}
+/* contact form css start */

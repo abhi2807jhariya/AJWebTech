@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhishek Jhariya - Web Designer & Frontend Developer</title>
+    <meta name="description"
+        content="Abhishek Jhariya - A passionate Web Designer and Frontend Developer with experience in HTML, CSS, Bootstrap, JavaScript, and .NET. Explore my work, skills, and projects.">
+    <meta name="keywords"
+        content="Abhishek Jhariya, Web Designer, Frontend Developer, HTML, CSS, Bootstrap, JavaScript, .NET, Portfolio, UI Developer">
+    <meta name="author" content="Abhishek Jhariya">
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content="Abhishek Jhariya - Web Designer & Frontend Developer">
+    <meta property="og:description"
+        content="Explore the portfolio of Abhishek Jhariya - frontend developer with strong skills in responsive design and clean UI.">
+    <meta property="og:image"
+        content="https://abhi2807jhariya.github.io/Mohgaon-Kalan/assets/images/portfolio-banner.jpg">
+    <!-- Replace with your actual image path -->
+    <meta property="og:url" content="https://abhi2807jhariya.github.io/Mohgaon-Kalan/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Abhishek Jhariya - Web Designer & Frontend Developer">
+    <meta name="twitter:description"
+        content="Portfolio of Abhishek Jhariya, showcasing web design and development skills.">
+    <meta name="twitter:image"
+        content="https://abhi2807jhariya.github.io/Mohgaon-Kalan/assets/images/portfolio-banner.jpg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.v5.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css.map" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/ajwebtech.svg" />
+</head>
+
+
+<body>
+    <div id="header"></div>
+
+    <div class="main">
+        <div class="admin p-4">
+            <h1 class="text-center fw-bold mb-4">Contact Massage</h1>
+            <div class="table-responsive">
+                <table id="adminTable" class="table table-bordered table-striped mt-3">
+                    <thead style="background-color: #016d82; color: #ffffff;">
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Name</th>
+                            <th>Email Id</th>
+                            <th>Mobile</th>
+                            <th>Massage</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+    <div id="footer"></div>
+    <script src="/assets/js/include.js"></script>
+    <script src="/assets/js/animation.js"></script>
+    <script src="/assets/js/bootstrap.bundle.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+const adminTableBody = document.querySelector("#adminTable tbody");
+
+function loadMessages() {
+  fetch("YOUR_WEB_APP_URL")
+    .then(res => res.json())
+    .then(data => {
+      adminTableBody.innerHTML = "";
+      data.forEach(msg => {
+        adminTableBody.innerHTML += `
+          <tr>
+            <td>${msg.sr}</td>
+            <td>${msg.name}</td>
+            <td>${msg.email}</td>
+            <td>${msg.mobile}</td>
+            <td>${msg.massage}</td>
+          </tr>
+        `;
+      });
+    });
+}
+
+// Call this on page load
+loadMessages();
+</script>
+
+</body>
+
+</html>
