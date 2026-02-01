@@ -133,41 +133,41 @@
 
     <!-- Google Apps Script Form Submission -->
     <script>
-        const webAppURL = "https://script.google.com/macros/s/AKfycbzZir37Tt2gMNQahflVJZ2ll3MRJmkQU6m_2b7wIOh8_LLF9-xQh2blWNxCDUkNDD8/exec";
+const webAppURL = "https://script.google.com/macros/s/AKfycbzZir37Tt2gMNQahflVJZ2ll3MRJmkQU6m_2b7wIOh8_LLF9-xQh2blWNxCDUkNDD8/exec";
 
-        document.getElementById("submitBtn").addEventListener("click", function (e) {
-            e.preventDefault();
+document.getElementById("submitBtn").addEventListener("click", function(e){
+  e.preventDefault();
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    mobile_no: document.getElementById("mobile_no").value.trim(),
+    message: document.getElementById("message").value.trim()
+  };
 
-            const data = {
-                name: document.getElementById("name").value.trim(),
-                email: document.getElementById("email").value.trim(),
-                mobile_no: document.getElementById("mobile_no").value.trim(),
-                message: document.getElementById("message").value.trim()
-            };
+  if(!data.name || !data.email || !data.mobile_no || !data.message){
+    alert("Please fill all the fields!");
+    return;
+  }
 
-            if (!data.name || !data.email || !data.mobile_no || !data.message) {
-                alert("Please fill all the fields!");
-                return;
-            }
+  fetch(webAppURL, {
+    method: "POST",
+    body: new URLSearchParams(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    if(res.status === "success"){
+      alert("Message submitted successfully!");
+      document.getElementById("name").value="";
+      document.getElementById("email").value="";
+      document.getElementById("mobile_no").value="";
+      document.getElementById("message").value="";
+    } else {
+      alert("Something went wrong!");
+    }
+  })
+  .catch(()=> alert("Error connecting to server."));
+});
 
-            fetch(webAppURL, {
-                method: "POST",
-                body: new URLSearchParams(data)
-            })
-            .then(res => res.json())
-            .then(res => {
-                if (res.status === "success") {
-                    alert("Message submitted successfully!");
-                    document.getElementById("name").value = "";
-                    document.getElementById("email").value = "";
-                    document.getElementById("mobile_no").value = "";
-                    document.getElementById("message").value = "";
-                } else {
-                    alert("Something went wrong. Please try again.");
-                }
-            })
-            .catch(() => alert("Error connecting to server."));
-        });
     </script>
 </body>
 
