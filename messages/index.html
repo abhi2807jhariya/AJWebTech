@@ -24,6 +24,7 @@
                         <th>Email Id</th>
                         <th>Mobile</th>
                         <th>Message</th>
+                        <th>Action</th> <!-- Delete column -->
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -34,7 +35,11 @@
 
 <div id="footer"></div>
 
-<script>
+<!-- Preserve all your original JS includes -->
+<script src="../assets/js/include.js"></script>
+<script src="../assets/js/animation.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+
 <script>
     const adminTableBody = document.querySelector("#adminTable tbody");
     const webAppURL = "https://script.google.com/macros/s/AKfycbzZir37Tt2gMNQahflVJZ2ll3MRJmkQU6m_2b7wIOh8_LLF9-xQh2blWNxCDUkNDD8/exec";
@@ -53,7 +58,7 @@
                         <td>${msg.mobile_no}</td>
                         <td>${msg.message}</td>
                         <td>
-                          <button class="btn btn-danger btn-sm" onclick="deleteMessage(${msg.sr})">Delete</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteMessage(${msg.sr})">Delete</button>
                         </td>
                     </tr>
                 `;
@@ -80,9 +85,6 @@
 
     // Load messages on page load
     loadMessages();
-</script>
-
-
 </script>
 </body>
 </html>
