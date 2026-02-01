@@ -30,8 +30,8 @@ function setActiveMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  includeHTML("/assets/include/header.html", "header", setActiveMenu);
-  includeHTML("/assets/include/footer.html", "footer");
+  includeHTML("assets/include/header.html", "header", setActiveMenu);
+  includeHTML("assets/include/footer.html", "footer");
 });
 
 
