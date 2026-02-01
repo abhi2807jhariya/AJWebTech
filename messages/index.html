@@ -35,32 +35,31 @@
 <div id="footer"></div>
 
 <script>
-    const adminTableBody = document.querySelector("#adminTable tbody");
-    const webAppURL = "https://script.google.com/macros/s/AKfycbzZir37Tt2gMNQahflVJZ2ll3MRJmkQU6m_2b7wIOh8_LLF9-xQh2blWNxCDUkNDD8/exec";
+const adminTableBody = document.querySelector("#adminTable tbody");
+const webAppURL = "https://script.google.com/macros/s/AKfycbzZir37Tt2gMNQahflVJZ2ll3MRJmkQU6m_2b7wIOh8_LLF9-xQh2blWNxCDUkNDD8/exec";
 
-    function loadMessages() {
-        // Using action=read parameter as you requested
-        fetch(webAppURL + "?action=read")
-        .then(res => res.json())
-        .then(data => {
-            adminTableBody.innerHTML = "";
-            data.forEach((msg, index) => {
-                adminTableBody.innerHTML += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${msg.name}</td>
-                        <td>${msg.email}</td>
-                        <td>${msg.mobile_no}</td>
-                        <td>${msg.message}</td>
-                    </tr>
-                `;
-            });
-        })
-        .catch(err => console.log("Error fetching messages:", err));
-    }
+function loadMessages() {
+    fetch(webAppURL + "?action=read")
+    .then(res => res.json())
+    .then(data => {
+        adminTableBody.innerHTML = "";
+        data.forEach((msg, index) => {
+            adminTableBody.innerHTML += `
+                <tr>
+                    <td>${msg.sr}</td>
+                    <td>${msg.name}</td>
+                    <td>${msg.email}</td>
+                    <td>${msg.mobile_no}</td>
+                    <td>${msg.message}</td>
+                </tr>
+            `;
+        });
+    })
+    .catch(err => console.log("Error fetching messages:", err));
+}
 
-    // Load messages on page load
-    loadMessages();
+loadMessages();
+
 </script>
 </body>
 </html>
