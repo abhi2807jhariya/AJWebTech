@@ -41,23 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Active btn js start
 function setActiveMenu() {
-  const currentUrl = window.location.href;
+  const currentUrl = window.location.href.replace(/\/$/, "");
 
   const navLinks = document.querySelectorAll('.list li a');
 
   navLinks.forEach(link => {
-    const linkUrl = link.href;
+    const linkUrl = link.href.replace(/\/$/, "");
 
-    if (currentUrl === linkUrl || currentUrl === linkUrl + '/') {
-      link.classList.add('menu_actve');
-    } else if (link.getAttribute('href') !== '/' && currentUrl.includes(link.getAttribute('href'))) {
+    if (currentUrl === linkUrl) {
       link.classList.add('menu_actve');
     } else {
       link.classList.remove('menu_actve');
     }
   });
 }
-window.addEventListener('load', setActiveMenu);
 
+window.addEventListener('load', setActiveMenu);
 
 // Active btn js end
