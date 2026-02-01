@@ -6,8 +6,7 @@ function includeHTML(file, elementId, callback) {
     })
     .then(data => {
       document.getElementById(elementId).innerHTML = data;
-
-      if (callback) callback(); // header load hone ke baad active set
+      if (callback) callback();
     })
     .catch(err => console.error("Error loading include file:", err));
 }
@@ -19,7 +18,7 @@ function setActiveMenu() {
     const href = link.getAttribute("href").toLowerCase();
 
     if (
-      (path === "/" && (href === "/" || href === "./" || href === "index.html")) ||
+      (path.endsWith("/") && (href === "/" || href === "./" || href === "index.html")) ||
       (path.includes("about") && href.includes("about")) ||
       (path.includes("services") && href.includes("services")) ||
       (path.includes("contact") && href.includes("contact"))
@@ -30,9 +29,14 @@ function setActiveMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  includeHTML("assets/include/header.html", "header", setActiveMenu);
-  includeHTML("assets/include/footer.html", "footer");
+  // 🔥 auto base path detect
+  const depth = window.location.pathname.split("/").filter(p => p).length - 1;
+  const base = "../".repeat(depth);
+
+  includeHTML(base + "assets/include/header.html", "header", setActiveMenu);
+  includeHTML(base + "assets/include/footer.html", "footer");
 });
+
 
 
 // Active btn js start
